@@ -1,5 +1,6 @@
 package com.brother.customresponse.entity;
 
+import com.brother.customresponse.enums.ActiveStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,11 +18,12 @@ public class BaseEntity {
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Integer isActive;
+    private Integer activeStatus;
 
     @PrePersist
     public void prePersistValue() {
         this.createdAt = LocalDateTime.now();
+        this.activeStatus = ActiveStatus.ACTIVE.getValue();
     }
 
     @PreUpdate

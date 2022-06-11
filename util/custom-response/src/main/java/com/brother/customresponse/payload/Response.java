@@ -21,7 +21,7 @@ public class Response {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object content;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private int numberOfElement;
+    private Long numberOfElement;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Long rowCount;
     @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public final class ResponseBuilder {
@@ -57,7 +56,7 @@ public final class ResponseBuilder {
                 .build();
     }
 
-    public static Response getSuccessResponse(HttpStatus status, String message, Object content, int numberOfElement) {
+    public static Response getSuccessResponse(HttpStatus status, String message, Object content, Long numberOfElement) {
         return Response.builder()
                 .message(message)
                 .status(status.getReasonPhrase())
@@ -68,7 +67,7 @@ public final class ResponseBuilder {
                 .build();
     }
 
-    public static Response getSuccessResponse(HttpStatus status, String message, Object content, int numberOfElement,
+    public static Response getSuccessResponse(HttpStatus status, String message, Object content, Long numberOfElement,
                                               Long rowCount) {
         return Response.builder()
                 .message(message)

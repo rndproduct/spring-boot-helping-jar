@@ -27,8 +27,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Response saveStudent(StudentDto studentDto) {
-        Student student;
-        student = modelMapper.map(studentDto, Student.class);
+        Student student = modelMapper.map(studentDto, Student.class);
         Student finalStudent = student;
         student.getAddress().forEach(address -> address.setStudent(finalStudent));
         student = studentRepository.save(student);
@@ -47,7 +46,6 @@ public class StudentServiceImpl implements StudentService {
         return ResponseBuilder.getSuccessResponse(HttpStatus.OK, "Student List retrieved successfully",
                 getStudentList(studentList.get()));
     }
-
 
     private List<StudentDto> getStudentList(List<Student> studentList) {
         return studentList.stream().map(student -> modelMapper.map(student, StudentDto.class)).

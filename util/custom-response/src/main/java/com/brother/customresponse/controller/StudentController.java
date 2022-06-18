@@ -5,14 +5,12 @@ import com.brother.customresponse.payload.StudentDto;
 import com.brother.customresponse.service.StudentService;
 import com.brother.customresponse.util.ResponseBuilder;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
+@RequestMapping("student-management/student")
 public class StudentController {
 
     private final StudentService studentService;
@@ -21,7 +19,7 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @PostMapping("/student-save")
+    @PostMapping("/save")
     public Response saveStudent(@Valid @RequestBody StudentDto studentDto, BindingResult result) {
         if (result.hasErrors()) {
             ResponseBuilder.getFailureResponse(result, "");
@@ -29,7 +27,7 @@ public class StudentController {
         return studentService.saveStudent(studentDto);
     }
 
-    @GetMapping("student-list")
+    @GetMapping("list")
     public Response getAllStudent() {
         return studentService.studentList();
     }

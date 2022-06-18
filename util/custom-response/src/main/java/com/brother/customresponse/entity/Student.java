@@ -16,7 +16,7 @@ public class Student extends BaseEntity {
 
     private String name;
     private String email;
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Address> address;
 
 }

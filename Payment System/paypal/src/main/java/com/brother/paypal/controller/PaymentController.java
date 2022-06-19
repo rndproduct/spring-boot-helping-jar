@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static com.brother.paypal.util.Constant.CANCEL_URL;
-import static com.brother.paypal.util.Constant.SUCCESS_URL;
+import static com.brother.paypal.util.Constant.*;
 
 @Controller
 @RequestMapping("payment-management")
@@ -47,12 +46,12 @@ public class PaymentController {
         return "";
     }
 
-    @GetMapping(value = CANCEL_URL)
+    @GetMapping(value = CANCEL_END_POINT)
     public String cancelPay() {
         return "cancel";
     }
 
-    @GetMapping(value = SUCCESS_URL)
+    @GetMapping(value = SUCCESS_END_POINT)
     public String successPay(@RequestParam("paymentId") String paymentId, @RequestParam("PayerID") String payerId) {
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);

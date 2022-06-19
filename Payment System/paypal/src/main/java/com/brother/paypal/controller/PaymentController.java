@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import static com.brother.paypal.util.Constant.CANCEL_URL;
+import static com.brother.paypal.util.Constant.SUCCESS_URL;
+
 @Controller
 @RequestMapping("payment-management")
 public class PaymentController {
     @Value("${application.url}")
     private String applicationUrl;
-
-    public static final String SUCCESS_URL = "pay/success";
-    public static final String CANCEL_URL = "pay/cancel";
 
     private final PaypalService paypalService;
 

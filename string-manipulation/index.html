@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header  d-flex align-items-center justify-content-between">
+                        <h6 class="pull-left"><i class="fa fa-code" aria-hidden="true"></i> &nbsp;Enter your text
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <textarea spellcheck="false" id="userInputField" name="userInputField"
+                            class="case-converter-filed form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h6 class="pull-left">Output Format</h6>
+                        <div onclick="copyInputMessage()"><i class="fa fa-clone" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <textarea spellcheck="false" name="userOutputField" id="userOutputField"
+                            class="case-converter-filed form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div>
+                <button type="text" onclick="upperCase()" class="btn bg-secondary text-white btn-sm">UPPER CASE</button>
+                <button type="text" onclick="lowerCase()" class="btn bg-secondary text-white btn-sm">lower case</button>
+                <button type="text" onclick="camelCaseLower()" class="btn bg-secondary text-white btn-sm">camel Case
+                    (lower)</button>
+                <button type="text" onclick="camelCaseUpper()" class="btn bg-secondary text-white btn-sm">Camel Case
+                    (Upper)</button>
+                <button type="text" onclick="snakeCase()" class="btn bg-secondary text-white btn-sm">snake-Case</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

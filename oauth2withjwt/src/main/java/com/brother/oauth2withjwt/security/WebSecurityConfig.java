@@ -33,6 +33,8 @@ public class WebSecurityConfig {
 
     @Value("${security.signing-key}")
     private String signingKey;
+    @Value("${allowed.origin.pattern}")
+    private String allowedOriginPattern;
 
     @Bean
     protected AuthenticationManager authenticationManager() {
@@ -52,7 +54,7 @@ public class WebSecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("*"));
+        configuration.setAllowedOriginPatterns(List.of(allowedOriginPattern));
         configuration.setAllowedMethods(
                 Arrays.asList(
                         HttpMethod.GET.toString(), HttpMethod.HEAD.toString(),

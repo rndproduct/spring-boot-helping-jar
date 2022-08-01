@@ -107,6 +107,7 @@ curl --location --request POST 'localhost:8080/oauth/token' \
 ![Api access](https://user-images.githubusercontent.com/15130238/182061793-415b9a35-1df1-43b3-a07a-4afc4dc0353d.png)
 
 ## References
+- https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
 - https://www.pixeltrice.com/spring-boot-security-using-oauth2-with-jwt/
 - https://www.base64encode.org/
 

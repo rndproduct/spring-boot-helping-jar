@@ -1,5 +1,5 @@
-insert into role (id, display_name, role_name) VALUES (1, 'ADMIN','ADMIN');
-insert into role (id, display_name, role_name) VALUES (2, 'USER','USER');
+insert into role (id, display_name, name) VALUES (1, 'ADMIN','ADMIN');
+insert into role (id, display_name, name) VALUES (2, 'USER','USER');
 
 
 # $2a$12$O.3u.s2xzid729dbce36WuWOynVhgOHYCywR5Voz.ddRbpmKF0AD2 ~= 1234

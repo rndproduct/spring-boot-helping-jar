@@ -24,11 +24,11 @@ public class CustomAuthenticationManager implements AuthenticationManager {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String username = authentication.getPrincipal() + "";
-        String password = authentication.getCredentials() + "";
+        String username = authentication.getPrincipal().toString();
+        String password = authentication.getCredentials().toString();
 
-        UserEntity userEntity = userRepository
-                .findByUserName(username);
+        UserEntity userEntity = userRepository.findByUserName(username)
+                .orElseThrow(() -> new BadCredentialsException("Invalid Credentials"));
 
         if (userEntity == null || !passwordEncoder.matches(password, userEntity.getPassword())) {
             throw new BadCredentialsException("Invalid Credentials");
@@ -37,7 +37,7 @@ public class CustomAuthenticationManager implements AuthenticationManager {
         List<GrantedAuthority> grantedAuths = new ArrayList<>();
 
         userEntity.getRoles().forEach(roleEntity -> {
-            grantedAuths.add(new SimpleGrantedAuthority(roleEntity.getRoleName()));
+            grantedAuths.add(new SimpleGrantedAuthority(roleEntity.getName()));
         });
 
         return new UsernamePasswordAuthenticationToken(username, password, grantedAuths);

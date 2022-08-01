@@ -27,13 +27,10 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        UserEntity userEntity = userRepository.findByUserName(userName);
+        UserEntity userEntity = userRepository.findByUserName(userName)
+                .orElseThrow(() -> new BadCredentialsException("Invalid Credentials"));
 
-        if (userEntity == null) {
-            throw new BadCredentialsException("Invalid Credentials");
-        }
-
-        String[] roles = userEntity.getRoles().stream().map(RoleEntity::getRoleName).toArray(String[]::new);
+        String[] roles = userEntity.getRoles().stream().map(RoleEntity::getName).toArray(String[]::new);
         return User.withUsername(userEntity.getUserName())
                 .password(userEntity.getPassword())
                 .authorities(roles).build();
